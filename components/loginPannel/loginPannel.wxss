@@ -1,0 +1,9 @@
+.title{
+  padding-left:40rpx;
+  font-size: 36rpx;
+  line-height: 2;
+  color: #333;
+}
+.bt{
+  width:80%;
+}

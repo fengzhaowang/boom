@@ -1,0 +1,57 @@
+<!--pages/honghong/honghong.wxml-->
+<view class="honghong_box">
+  <view class="honghong_box_top">
+    <view class="honghong_search">
+      <image src="/images/search.png" bindtap="show"></image>
+      <view class="input" hidden="{{hiddenName}}">
+        <input placeholder="请输入关键词" bindinput="search" style="font-size:14px;padding-left:10rpx;"></input>
+        <button bindtap="searchbutton" class="queryInput">搜索</button>
+      </view>
+    </view>
+    <!--世界/同城  -->
+    <view class="body-view">
+      <view class="honghong_all">
+        <text class="{{isWorld ? 'on' : ''}}" bindtap="switchWorldChannel">世界</text>
+        <text class="{{! isWorld ? 'on' : ''}}" bindtap="switchCityChannel">同城</text>
+      </view>
+      <!-- <switch bindchange="switchChange" color="#989898" /> -->
+    </view>
+  </view>
+  <!--云朵  -->
+  <view class="section section02 {{scrollindex==1?'active':''}}" bindtouchstart="scrollTouchStart" bindtouchmove='scrollTouchMove' bindtouchend="scrollTouchEnd">
+    <!-- <view class="honghong_content_yun" animation="{{animationCloudData}}" > -->
+    <block wx:for="{{cloudList}}" wx:key="index" wx:value="item">
+      <cloud screenHeight="{{screenHeight}}" userName="{{item.userName}}" pic="{{item.pic}}" translateY="{{item.translateY}}" topic="{{item.topic}}" date="{{item.date}}" content="{{item.content}}" offX="{{item.offX}}" aniDelay="{{item.aniDelay}}" hits="{{item.hits}}"
+        longClickSum="{{item.longClickSum}}" topicId="{{item.topicId}}" true="{{trues}}"></cloud>
+    </block>
+  </view>
+  <view class="honghong_bottoms">
+    <view class="honghong_bottom_left_1">
+      <image src="/images/hh.png"></image>
+    </view>
+    <view class="input_search">
+      <view class="input_group">
+        <view class="input_box" wx:if="{{isShow_s}}">
+          <input type="text" confirm-type="send" placeholder='输入最想说的一句话，轰轰来宠你……' bindinput="inputWords" bindconfirm="inputWords" value="{{userInput}}"></input>
+          <button bindtap="say" class="btn">发布</button>
+        </view>
+        <view class="input_arraw">
+          <image class="title_icon" src="{{isShow_s ? '/images/arrow.png' : '/images/xia.png' }}" bindtap="toChange_s" />
+        </view>
+      </view>
+      <!--content-->
+      <!--使用animation属性指定需要执行的动画-->
+      <!-- <view class="drawer_attr_box"> -->
+      <!--drawer content-->
+      <!-- <view class="drawer_content {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+					<view class="drawer_title line"><input placeholder="输入最想说的一句话，轰轰来宠你……"></input></view>
+				</view>
+			</view> -->
+    </view>
+    <view class="honghong_bottom_right_1">
+      <image src="/images/rainbow_right.png" bindtap="go"></image>
+    </view>
+  </view>
+</view>
+
+<loginPannel class="loginPannel" wx:if="{{login_enabled}}" bindpermitted="permitted"></loginPannel>

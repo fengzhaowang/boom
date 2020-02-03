@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cloud": "../../components/cloud/cloud",
+    "loginPannel": "../../components/loginPannel/loginPannel"
+  }
+}

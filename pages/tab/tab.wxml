@@ -1,0 +1,11 @@
+<!--pages/tab/tab.wxml-->
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected?'red':'default'}}" bindtap="selected">我发布的</view>
+    <view class="{{selected1?'red':'default'}}" bindtap="selected1">消息</view>
+    <view class="{{selected2?'red':'default'}}" bindtap="selected2">点赞</view>
+  </view>
+  <view class="{{selected?'show':'hidden'}}">for system</view>
+  <view class="{{selected1?'show':'hidden'}}">for activity1</view>
+  <view class="{{selected2?'show':'hidden'}}">for activity2</view>
+</view>

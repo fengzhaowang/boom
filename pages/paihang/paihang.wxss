@@ -1,0 +1,228 @@
+/* pages/paihang/paihang.wxss */
+@import "../honghong/honghong.wxss";
+.scroll-view{
+  position: absolute;
+  height: 87%;
+}
+.paihang_top{
+  margin:0 auto;
+  height:50px;
+}
+.paihang_top_left{
+  width:50rpx;
+  height:60rpx;
+  float:left;
+  margin-top:20rpx;
+  margin-left:18rpx;
+  cursor:pointer;
+}
+.paihang_top_left image{
+  width:100%;
+  height:100%;
+}
+.paihang_content_one_imgs{
+  margin-left:30rpx;
+}
+.paihang_top_center{
+  width:90%;
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  float:left;
+}
+.paihang_top_center text{
+  margin: 0 2em;
+  color:#989898;
+  font-size:24rpx;
+}
+.paihang_top_center .day{
+  font-size:28rpx;
+  color:#383838;
+  font-weight:bold;
+  
+}
+.paihang_content{
+  width:80%;
+  height: auto;
+  margin:0 auto;
+  overflow:hidden;
+
+}
+.paihang_content_one{
+  width: 98.5%;
+  height:80rpx;
+  background:#fff;
+  border:2px solid #C7C7C7;
+}
+.paihang_content_one_left{
+  width:10%;
+  height:auto;
+  float:left;
+}
+.paihang_content_one_left image{
+  width:100%;
+  height:47rpx;
+  margin-top:20rpx;
+  margin-left:17rpx;
+}
+.paihang_content_one_center{
+  width:65%;
+  height:65rpx;
+  float:left;
+  padding:5px;
+  margin-left:15rpx;
+}
+.paihang_text .text{
+  width:100%;
+  height:40rpx;
+  font-size:16rpx;
+  line-height:20rpx;
+   overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.paihang_content_one_img{
+  width:70rpx;
+  height:70rpx;
+  float:left;
+}
+.paihang_content_one_img image{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+}
+.paihang_text{
+  /* display:inline-block; */
+  width:65%;
+  color:#626262;
+  float:left;
+  font-size:16px;
+  margin-left:5px;
+  /* margin-top:5px; */
+}
+.paihang_title{
+  font-size:24rpx;
+  color:#FF691F;
+}
+.paihang_title{
+  float:left;
+  margin-bottom:12rpx;
+  margin-right:20rpx;
+}
+.paihang_titles{
+  margin-top:5rpx;
+}
+.paihang_content_oness{
+ margin-top:10rpx!important;
+}
+.paihang_content_one_centers{
+  width:78%;
+}
+.zong{
+  height:auto;
+  line-height:24rpx;
+}
+.ming{
+  float:left;
+  font-size:20rpx;
+}
+.paihang_zan{
+  width:15%;
+  height:auto;
+  margin-top:10rpx;
+  float:left;
+  text-align:center;
+  color:#333;
+  font-size:20rpx;
+}
+.paihang_zan_img image{
+  width:32rpx;
+  height:32rpx;
+}
+.paihang_content_ones{
+  margin-top:10rpx;
+}
+.paihang_num{
+  width:50%;
+  font-size:36px;
+  margin:0 auto;
+  margin-top:-2rpx;
+  color:#FF7807;
+  margin-left: 24rpx;
+
+}
+
+
+/* 弹框 */
+
+/* 遮罩层 */
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 9000;
+    opacity: 0.8;
+}
+ 
+/* 弹出层 */
+.modalDlg{
+    width: 70%;
+    position: fixed;
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin: 0 auto;
+    /* background-color: #fff; */
+    border-radius:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom:30rpx;
+}
+
+/* 弹出层里面的图片 */
+
+.honghong_bottom_rights{
+   width:80rpx;
+  height:80rpx;
+  position: relative;
+  z-index: 999;
+}
+
+/* 弹出层里面的按钮 */
+.ok{
+  width:30rpx;
+  height:30rpx;
+  float:left;
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+}
+.ok image{
+    width:20rpx;
+  height:20rpx;
+  float:left;
+  cursor:pointer;
+}
+
+/* 弹出层里面的文字 */
+.text{
+  text-align: justify;
+  font-size: 20px;
+  color: #666;
+  width: 180px;
+  margin-top: 10px;
+}
+.honghong_content_yun_lefts{
+  margin-left:0rpx!important;
+}
+.honghong_texts{
+  height: 200rpx;
+}
+.honghong_photo{
+  border-radius: 50%;
+}

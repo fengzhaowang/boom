@@ -1,0 +1,21 @@
+{
+  "pages": [
+    
+    "pages/honghong/honghong",
+    "pages/paihang/xiangqing",
+    "pages/topicXiangQing/topicXiangQing",
+    "pages/paihang/paihang",
+    "pages/paihang/geren_xiangqing",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/tab/tab",
+    "pages/a/a"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "轰轰",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

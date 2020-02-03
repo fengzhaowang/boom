@@ -1,0 +1,95 @@
+<!--pages/paihang/xiangqing.wxml-->
+<wxs module="filters" src="filters.wxs"></wxs>
+<view class="honghong_box">
+  <view class="xiangqing_tops">
+    <view class="xiangqing_top">
+        <view class="xiangqing_left">
+            <image src="{{userInfo.user.headImg}}"></image>
+        </view>
+        <view class="xiangqing_name">{{userInfo.user.nickname}}</view>
+    </view>
+  </view>
+  <!-- 详情内容 -->
+
+  <view class="{{selected1?'show':'hidden'}}">
+    <view class="isFaBu" style="display:{{commentTopicList.length == 0 ? 'block' : 'none'}};">没有消息</view>
+      <block wx:for="{{commentTopicList}}" wx:item="item" wx:key="index">
+      <view class="xiangqing_content" bindtap="setTopicId" data-id="{{item.id}}">
+        <view class="xiangqing_contents">
+          <view class="xiangqing_content_top">
+            <view class="xiangqing_content_tops">
+              <!-- <view class="xiangqing_title">
+                {{item.title}}
+              </view> -->
+              <view class="xiangqing_time">{{item.updatedAt}}</view>
+            </view>
+
+            <!-- 点赞和评论 -->
+            <view class="xiangqing_pinglun">
+              <view class="xiangqing_pingluns">
+                <view class="xiangqing_pinglun_left" bindtap="addCommentTopic" data-id="{{item.id}}">
+                  <view class="xiangqing_img">
+                    <image src="/images/ping_lun.png"></image>
+                  </view>
+                  <text>{{item.commentList.length == undefined ? '0' : item.commentList.length}}</text>
+                </view>
+                <view class="xiangqing_pinglun_left xiangqing_pinglun_lefts"  bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+                  <view class="xiangqing_img xiangqing_imgs">
+                    <image src="/images/dian.png"></image>
+                  </view>
+                  <text>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</text>
+                </view>
+              </view>
+            </view>
+
+            <!-- 话题信息 -->
+          </view>
+          <view class="xiangqing_text">{{item.content}}</view>
+          <view class="xiangqing_zong">
+            <view class="xiangqing_zong_padding">
+              <view style="float:left;" style="display:{{item.commentList == undefined?'none':'display'}};">评论详情</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 渲染列表 -->
+        <block wx:for="{{item.commentList}}" wx:item="item" wx:key="index">
+          <view class="xiangqing_bottom">
+          
+            <view class="xiangqing_bottom_left" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="xiangqing_bottom_right">
+              <view class="xiangqing_bottom_right_name">{{item.user.nickname}}
+                <view style='{{item.thisReplyCommentUserName == undefined ? "display:none":""}}'class="nikeNameAndComment">回复给 {{item.thisReplyCommentUserName}}：{{item.thisReplyCommentUserList.content}}</view>
+              </view>
+              <view class="xiangqing_bottom_right_time">{{item.updatedAt}}</view>
+              <view class="xiangqing_bottom_right_text" bindtap="addComment" data-id="{{item.id}}" data-name="{{item.user.nickname}}">
+                {{item.content}}
+              </view>
+            </view>
+          </view>
+        </block>
+
+      </view>
+      </block>
+    </view>
+<view style="display:{{isOnFocus?'block':'none'}};" class="addCommentInputDiv"><input bindinput="addCommentInputChenge" placeholder-style="color:#9DA1AA;font-size:32rpx;" placeholder="{{commentName}}" class="addCommentInput" bindblur="addCommentBlur" focus="{{isOnFocus}}"></input><view bindtap="addCommentRequest" class="addCommentButton">发布</view></view>
+
+
+
+  <!-- 底部 -->
+    <view class="honghong_bottoms">
+    
+      <view class="honghong_bottom_left_1">
+        <image src="/images/hh.png" bindtap="go_honghong"></image>
+      </view>
+      
+      <!-- 右下角排行 -->
+      <view class="honghong_bottom_right_1">
+        <image src="/images/rainbow_right.png"></image>
+      </view>
+    </view> 
+  
+</view>
+<loginPannel class="loginPannel" wx:if="{{login_enabled}}" bindpermitted="permitted"></loginPannel>

@@ -1,0 +1,5 @@
+<view wx:if="{{enabled}}">
+  <view class="title">用户登录</view>
+  <button class="bt" type="primary" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="onWechatLogin">微信登录</button>
+</view>
+

@@ -1,0 +1,300 @@
+/* pages/paihang/geren_xiangqing.wxss */
+@import "../honghong/honghong.wxss";
+@import "../paihang/xiangqing.wxss";
+
+
+.addCommentInputDiv{
+  width: 100vw;
+  height: 10vh;
+  background: rgb(252, 252, 252);
+  position: fixed;
+  bottom: 10vh;
+}
+.addCommentInput{
+  width: 75%;
+  height:70%;
+  display: inline-block;
+  color:rgb(85, 85, 85);
+  font-size:32rpx;
+  margin-left: 20rpx;
+}
+.addCommentButton{
+  width: 20%;
+  height: 70%;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  color: #1ff35f;
+  display: inline-block;
+  text-align: center;
+  background: #FCFCFC;
+}
+
+
+
+.displayH{
+  display: none;
+}
+.displayS{
+  display: block;
+}
+.nikeNameAndComment{
+  color:#EDA524;
+}
+.paihang_content_one_left{
+  width:14%;
+  height:45rpx;
+  float:left;
+  
+}
+.paihang_content_one_left image{
+  width:50rpx;
+  height:45rpx;
+}
+/* 第一名的戳 */
+/* .diYiImg{
+  width: 90rpx;
+  height: 90rpx;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+} */
+
+
+page{
+  overflow: visible;
+}
+.honghong_box{
+  min-height:90vh;
+  padding-bottom:10vh;
+}
+
+.isFaBu{
+  text-align: center;
+  color: #606060;
+  font-size: 24rpx;
+  margin-top: 100rpx;
+}
+
+.xiangqing_tops {
+  width: 100%;
+  height: 194rpx;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.xiangqing_top {
+  width: 80vw;
+  height: 174rpx;
+  float: left;
+  margin-left: 118rpx;
+}
+
+.xiangqing_left {
+  width: 24%;
+  float: left;
+}
+
+.xiangqing_top image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-top: 8rpx;
+  float: left;
+}
+
+.xiangqing_name {
+  width: 92%;
+  margin: 0 auto;
+  font-size: 28rpx;
+}
+
+.xiangqing_names {
+  line-height: 20rpx;
+  color: #333;
+}
+
+.xiangqing_content {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(191, 191, 191, 1);
+  border-radius: 10px;
+  margin-top: 15rpx;
+  position: relative;
+}
+
+.xiangqing_content_top {
+  width: 92%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+
+.xiangqing_content_tops {
+  width: 58%;
+  padding: 5rpx;
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+
+.xiangqing_title {
+  font-size: 20rpx;
+  float: left;
+}
+
+.xiangqing_time {
+  float: left;
+  font-size: 20rpx;
+  color: #6e7486;
+  margin-left:0rpx;
+}
+
+.xiangqing_pinglun {
+  width: 40%;
+  float: left;
+}
+
+.xiangqing_pinglun_left {
+  width: 109rpx;
+  height: 40rpx;
+  background: rgba(237, 238, 242, 1);
+  border-radius: 20rpx;
+  font-size: 14px;
+  float: left;
+  margin-left: 15rpx;
+  line-height: 40rpx;
+}
+
+.xiangqing_img {
+  width: 23rpx;
+  height: 22rpx;
+  float: left;
+  margin-top: 0rpx;
+  margin-left: 5px;
+}
+
+.xiangqing_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.xiangqing_pingluns {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.xiangqing_pinglun_left text {
+  width: 50%;
+  margin-top: 0rpx;
+  display: inline-block;
+  margin-left: 5rpx;
+  font-size: 24rpx;
+}
+
+.xiangqing_imgs {
+  margin-top: 0rpx;
+}
+
+.xiangqing_text {
+  width: 90%;
+  min-height: 30rpx;
+  margin: 0 auto;
+  color: #6e7486;
+  font-size: 24rpx;
+}
+
+.xiangqing_pinglun_lefts {
+  float: right;
+}
+
+.xiangqing_contents {
+  margin-bottom: 10rpx;
+  height: auto;
+}
+
+.xiangqing_lefts {
+  width: 21%;
+  height: 142rpx;
+  overflow: hidden;
+  float: none;
+  /* float:left; */
+}
+
+.nav {
+  width: 80%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  border-bottom: 1rpx solid #606060;
+}
+
+.default {
+  line-height: 100rpx;
+  text-align: center;
+  flex: 1;
+  border-right: none;
+  color: #606060;
+  font-size: 28rpx;
+}
+
+.red {
+  line-height: 100rpx;
+  text-align: center;
+  color: #606060;
+  flex: 1;
+  border-right: none;
+  border-bottom: 4rpx solid #606060;
+  font-size: 28rpx;
+}
+
+.hidden {
+  display: none;
+  text-align: center;
+  line-height: 200px;
+}
+
+.xiangqing_bottom_rights {
+  margin-top: 15rpx;
+  width: 50%;
+  float: left;
+}
+
+.zan_ci {
+  float: left;
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 25rpx;
+}
+
+.xiangqing_bottoms {
+  padding-bottom: 10rpx;
+}
+
+.xiangqing_zongs {
+  margin-top: 25rpx;
+}
+
+.xiangqing_zong_padding {
+  width: 100%;
+  text-align: center;
+}
+
+.people {
+  width: 90%;
+  margin: 0 auto;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 20rpx;
+  color: #2e2ae2;
+  text-align: center;
+  padding-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.xiangqing_none {
+  border-top: none;
+}

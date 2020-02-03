@@ -1,0 +1,209 @@
+<!--pages/paihang/geren_xiangqing.wxml-->
+<!--pages/paihang/xiangqing.wxml-->
+<wxs module="filters" src="filters.wxs"></wxs>
+<view class="honghong_box">
+  <view class="xiangqing_tops">
+    <view class="xiangqing_top">
+      <view class="xiangqing_left xiangqing_lefts">
+        <image src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="xiangqing_name xiangqing_names">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <!-- 详情内容 -->
+  <view class="body">
+    <view class="nav bc_white">
+      <view class="{{selected?'red':'default'}}" bindtap="selected">我发布的</view>
+      <view class="{{selected1?'red':'default'}}" bindtap="selected1">消息</view>
+      <view class="{{selected2?'red':'default'}}" bindtap="selected2">点赞</view>
+    </view>
+
+    <!-- 我发布的 -->
+    <view class="{{selected?'show':'hidden'}}">
+      <view class="isFaBu" style="{{topicList.length == 0?'display:block':'display:none'}}">没有发布</view>
+      <block wx:for="{{topicList}}" wx:key="index" wx:value="item">
+        <view class="xiangqing_content">
+        <!-- 第一名的戳 -->
+          <!-- <image src="/images/first.png" style="{{item.rankingOfTheDay == 1?'':'display:none;'}}" class="diYiImg"></image> -->
+          <view class="xiangqing_contents">
+            <view class="xiangqing_content_top">
+              <view class="xiangqing_content_tops">
+                <view class="xiangqing_title">
+                  {{item.title}}
+                  <!-- <text style="color:#FF6666;">#</text> -->
+                  <!-- <text style="color:#FF6666;">#</text> -->
+                </view>
+                <view class="xiangqing_time">{{item.updatedAt}}</view>
+              </view>
+              <view class="xiangqing_pinglun">
+                <view class="xiangqing_pingluns">
+                  <view class="xiangqing_pinglun_left">
+                    <view class="xiangqing_img">
+                      <image src="/images/ping_lun.png"></image>
+                    </view>
+                    <text>{{item.commentSum}}</text>
+                  </view>
+                  <view class="xiangqing_pinglun_left xiangqing_pinglun_lefts">
+                    <view class="xiangqing_img xiangqing_imgs">
+                      <image src="/images/dian.png"></image>
+                    </view>
+                    <text>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="xiangqing_text">{{item.content}}</view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+
+    <!-- 消息 -->
+    <view class="{{selected1?'show':'hidden'}}">
+    <view class="isFaBu" style="display:{{commentListSum == 0 ? 'block' : 'none'}};">没有消息</view>
+      <block wx:for="{{commentTopicList}}" wx:item="item" wx:key="index">
+      <view class="xiangqing_content" style="{{item.commentList == undefined?'display:none':'display:block'}}" bindtap="setTopicId" data-id="{{item.id}}">
+        <view class="xiangqing_contents">
+          <view class="xiangqing_content_top">
+
+            <view class="xiangqing_content_tops">
+              <view class="xiangqing_title">
+                {{item.title}}
+                <!-- <text style="color:#FF6666;">#</text>天凉好个秋
+                <text style="color:#FF6666;">#</text> -->
+              </view>
+              <view class="xiangqing_time">{{item.updatedAt}}</view>
+            </view>
+
+            <!-- 点赞和评论 -->
+            <view class="xiangqing_pinglun">
+              <view class="xiangqing_pingluns">
+                <view class="xiangqing_pinglun_left">
+                  <view class="xiangqing_img">
+                    <image src="/images/ping_lun.png"></image>
+                  </view>
+                  <text>{{item.commentList.length == undefined ? '0' : item.commentList.length}}</text>
+                </view>
+                <view class="xiangqing_pinglun_left xiangqing_pinglun_lefts">
+                  <view class="xiangqing_img xiangqing_imgs">
+                    <image src="/images/dian.png"></image>
+                  </view>
+                  <text>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</text>
+                </view>
+              </view>
+            </view>
+
+            <!-- 话题信息 -->
+          </view>
+          <view class="xiangqing_text">{{item.content}}</view>
+          
+          <view class="xiangqing_zong">
+            <view class="xiangqing_zong_padding">
+              ——————————以下是最新消息——————————
+            </view>
+          </view>
+          
+        </view>
+        <view class="people">
+          {{item.userLikes[0]}} 等{{item.userLikes.length}}人赞了你
+        </view>
+
+        <!-- 渲染列表 -->
+        <block wx:for="{{item.commentList}}" wx:item="item" wx:key="index">
+          <view class="xiangqing_bottom">
+          
+            <view class="xiangqing_bottom_left" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="xiangqing_bottom_right">
+              <view class="xiangqing_bottom_right_name">{{item.user.nickname}}
+                <view style='{{item.thisReplyCommentUserName == undefined ? "display:none":""}}'class="nikeNameAndComment">回复给 {{item.thisReplyCommentUserName}}：{{item.thisReplyCommentUserList.content}}</view>
+              </view>
+              <view class="xiangqing_bottom_right_time">{{item.updatedAt}}</view>
+              <view class="xiangqing_bottom_right_text" bindtap="addComment" data-id="{{item.id}}" data-name="{{item.user.nickname}}">
+                {{item.content}}
+              </view>
+            </view>
+          </view>
+        </block>
+
+      </view>
+      </block>
+    </view>
+<view style="display:{{isOnFocus?'block':'none'}};" class="addCommentInputDiv"><input bindinput="addCommentInputChenge" placeholder-style="color:#9DA1AA;font-size:32rpx;" placeholder="{{commentName}}" class="addCommentInput" bindblur="addCommentBlur" focus="{{isOnFocus}}"></input><view bindtap="addCommentRequest" class="addCommentButton">发布</view></view>
+    <!-- 点赞 -->
+    <view class="{{selected2?' ':'hidden'}}">
+    <view class="isFaBu" style="display:{{likeListSum == 0 ? 'block' : 'none'}};">没有点赞</view>
+      <block wx:for="{{likeTopicList}}" wx:item="item" wx:key="index">
+        <view class="xiangqing_content" style="{{item.likeSum == 0?'display:none':'display:block'}}">
+          <view class="xiangqing_contents">
+
+            <view class="xiangqing_content_top">
+              <view class="xiangqing_content_tops">
+                <view class="xiangqing_title">
+                  {{item.title}}
+                  <!-- <text style="color:#FF6666;">#</text>天凉好个秋
+                  <text style="color:#FF6666;">#</text> -->
+                </view>
+                <view class="xiangqing_time">{{item.createdAt}}</view>
+              </view>
+              <view class="xiangqing_pinglun">
+                <view class="xiangqing_pingluns">
+                  <view class="xiangqing_pinglun_left">
+                    <view class="xiangqing_img">
+                      <image src="/images/ping_lun.png"></image>
+                    </view>
+                    <text>{{item.commentSum}}</text>
+                  </view>
+                  <view class="xiangqing_pinglun_left xiangqing_pinglun_lefts">
+                    <view class="xiangqing_img xiangqing_imgs">
+                      <image src="/images/dian.png"></image>
+                    </view>
+                    <text>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <view class="xiangqing_text">{{item.content}}</view>
+            <view class="xiangqing_zong xiangqing_zong ">
+              <view class="xiangqing_zong_padding">
+                <view style="float:left;margin-right:20rpx;">——————————</view>
+                <view style="float:left;">以下是新消息</view>
+                <view style="float:left;margin-left:20rpx;">——————————</view>
+              </view>
+            </view>
+          </view>
+          
+          <block wx:for="{{item.likeList}}" wx:item="itemrs" wx:key="index">
+            <view class="xiangqing_bottom xiangqing_bottoms {{index == 0? 'xiangqing_none':''}}">
+              <view class="xiangqing_bottom_left">
+                <image src="{{item.user.headImg}}"></image>
+              </view>
+              <view class="xiangqing_bottom_right xiangqing_bottom_rights">
+                <view class="xiangqing_bottom_right_name">{{item.user.nickname}}</view>
+                <view class="xiangqing_bottom_right_time">{{item.createdAt}}</view>
+              </view>
+              <view class="zan_ci">
+                赞了你{{item.num}}次
+              </view>
+            </view>
+          </block>
+          
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="honghong_bottoms">
+    <view class="honghong_bottom_left_1">
+      <image src="/images/hh.png" bindtap="index"></image>
+    </view>
+    <view class="honghong_bottom_right_1">
+      <image src="/images/rainbow_right.png" bindtap="go"></image>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,277 @@
+<!--pages/paihang/paihang.wxml-->
+<wxs module="filters" src="filters.wxs"></wxs>
+<view class="honghong_box">
+  <!-- 顶部 -->
+  <view class="paihang_top">
+    <view class="paihang_top_left" bindtap="geren">
+      <image src="/images/phone.png"></image>
+    </view>
+    <view class="paihang_top_center">
+      <text class="{{dayOrMonth?'':'day'}}" bindtap="getDayList">日排行榜</text>
+      <text class="{{dayOrMonth?'day':''}}" bindtap="getMonthList">月排行榜</text>
+    </view>
+  </view>
+  <!-- 内容部分 -->
+  <scroll-view scroll-y="true" class="scroll-view">
+
+
+    <view class="paihang_content">
+      <block wx:for="{{list}}" wx:item="item" wx:key="index">
+        <!-- 第一名 -->
+        <view wx:if="{{index==0}}" class="paihang_content_one">
+          <view class="paihang_content_one_left">
+            <image src="/images/paihang_1.png"></image>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 第二名 -->
+        <view wx:elif="{{index==1}}" class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <image src="/images/paihang_2.png"></image>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 第三名 -->
+        <view wx:elif="{{index==2}}" class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <image src="/images/paihang_3.png"></image>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 第四名 -->
+        <view wx:elif="{{index==3}}" class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <view class="paihang_num">{{index+1}}</view>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 第五名 -->
+        <view wx:elif="{{index==4}}" class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <view class="paihang_num">{{index+1}}</view>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 第六名 -->
+        <view wx:elif="{{index==5}}" class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <view class="paihang_num">{{index+1}}</view>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 第七名 -->
+        <view wx:elif="{{index==6}}" class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <view class="paihang_num">{{index+1}}</view>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 第八名 -->
+        <view wx:elif="{{index==7}}" class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <view class="paihang_num">{{index+1}}</view>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 其余的人 -->
+        <view wx:else class="paihang_content_one paihang_content_ones">
+          <view class="paihang_content_one_left">
+            <view class="paihang_num" style="margin-left:{{index+1 >= 10 ? 5 : 24}}rpx;font-size:{{index+1 >= 100 ? 22 : 36}}px;margin-top:{{index+1 >= 100 ? 14 : -1}}rpx;">{{index+1}}</view>
+          </view>
+          <view class="paihang_content_one_center">
+            <view class="paihang_content_one_img" bindtap="go_xiangqing" id="{{item.user.id}}" data-alphaBeta="{{item.id}}">
+              <image src="{{item.user.headImg}}"></image>
+            </view>
+            <view class="paihang_text" bindtap="btn" id="{{index}}">
+              <view class="paihang_title">{{item.user.nickname}}</view>
+              <view class="text">{{item.content}}</view>
+            </view>
+          </view>
+          <view class="paihang_zan" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{item.id}}" data-alphaBeta="{{index}}">
+            <view>{{item.likeSum >= 10000 ? filters.toFix(item.likeSum/10000) + 'w' : (item.likeSum >= 1000 ? filters.toFix(item.likeSum/1000) + 'k' : item.likeSum)}}</view>
+            <view class="paihang_zan_img">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+ 
+    <!-- 底部图片按钮 -->
+    <view class="honghong_bottoms">
+      <!-- 左下角轰轰 -->
+      <view class="honghong_bottom_left_1">
+        <image src="/images/hh.png" bindtap="index"></image>
+      </view>
+      <!-- 右下角排行 -->
+      <view class="honghong_bottom_right_1">
+        <image src="/images/rainbow_right.png"></image>
+      </view>
+    </view>
+    
+</scroll-view>
+ 
+
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+  <!-- 弹出层 -->
+  <view class="modalDlg" wx:if="{{showModal}}">
+    <view class="honghong_content_yun honghong_content_yun_left honghong_content_yun_lefts" animation="{{animationCloudData}}">
+      <view bindtap="ok" class="ok">
+        <image src="/images/close.png"></image>
+      </view>
+      <view class="honghong_content">
+        <view class="honghong_yun">
+          <image src="/images/yun.png"></image>
+        </view>
+        <view class="honghong_boxs">
+          <view class="honghong_yun_text">
+            <view class="honghong_photo" bindtap="go_xiangqing" id="{{btn.user.id}}" data-alphaBeta="{{btn.id}}">
+              <image class="honghong_photo" src="{{btn.user.headImg}}" ></image>
+            </view>
+          </view>
+          <view class="honghong_title">{{btn.user.nickname}}</view>
+          <view class="honghong_bottom">
+            <view class="honghong_title_text">{{btn.title}}</view>
+            <view class="honghong_bottom_left">2019.7.2</view>
+          </view>
+          <view class="honghong_bottom_rights" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{btn.id}}" data-alphaBeta="{{btn.weight}}">
+            <view style="font-size:20rpx;color:#333;">{{btn.likeSum}}</view>
+            <view class="honghong_bottom_right">
+              <image src="/images/zan.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="honghong_xiang">
+        <view class="honghong_line">
+          <image src="/images/line.png"></image>
+        </view>
+      </view>
+      <view class="honghong_text honghong_texts">
+        {{btn.content}}
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<loginPannel class="loginPannel" wx:if="{{login_enabled}}" bindpermitted="permitted"></loginPannel>

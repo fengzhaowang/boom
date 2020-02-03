@@ -1,0 +1,262 @@
+/* pages/paihang/xiangqing.wxss */
+@import "../honghong/honghong.wxss";
+
+
+
+.addCommentInputDiv{
+  width: 100vw;
+  height: 10vh;
+  background: rgb(252, 252, 252);
+  position: fixed;
+  bottom: 10vh;
+}
+.addCommentInput{
+  width: 75%;
+  height:70%;
+  display: inline-block;
+  color:rgb(85, 85, 85);
+  font-size:32rpx;
+  margin-left: 20rpx;
+}
+.addCommentButton{
+  width: 20%;
+  height: 70%;
+  display: inline-block;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  color: #1ff35f;
+  text-align: center;
+  background: #FCFCFC;
+  position: absolute;
+  top: 20rpx;
+}
+
+
+
+.displayH{
+  display: none;
+}
+.displayS{
+  display: block;
+}
+.nikeNameAndComment{
+  color:#EDA524;
+}
+
+page{
+  overflow: visible;
+}
+.honghong_box{
+  min-height:90vh;
+  padding-bottom:10vh;
+}
+
+.xiangqing_tops{
+  width:100%;
+  height:145rpx;
+  border-bottom:1px solid #D2D2D2;
+}
+.xiangqing_top{
+  width:80%;
+  margin:0 auto;
+  height:145rpx;
+}
+.xiangqing_left{
+  width:24%;
+  float:left;
+}
+.xiangqing_top image{
+  width:120rpx;
+  height:120rpx;
+  border-radius:50%;
+  margin-top:8rpx;
+  float:left;
+}
+.xiangqing_name{
+  line-height:75px;
+  font-size:28rpx;
+}
+.xiangqing_content{
+ width: 90%;
+  height: auto;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(191, 191, 191, 1);
+  border-radius: 10px;
+  margin-top: 15rpx;
+  position: relative;
+}
+.xiangqing_content_top{
+  width:92%;
+  height:auto;
+  overflow:hidden;
+  margin:0 auto;
+  margin-top:30rpx;
+}
+.xiangqing_content_tops{
+  width:55%;
+  padding:5rpx;
+  height:auto;
+  overflow:hidden;
+  float:left;
+}
+.xiangqing_title{
+  font-size:20rpx;
+  float:left;
+}
+.xiangqing_time{
+  float:left;
+  font-size:20rpx;
+  color:#6E7486;
+}
+.xiangqing_pinglun{
+  width:40%;
+  float:left;
+}
+.xiangqing_pinglun_left{
+  width:109rpx;
+  height:40rpx;
+  background:rgba(237,238,242,1);
+  border-radius:20rpx;
+  font-size:14px;
+  float:left;
+  margin-left:15rpx;
+  line-height: 40rpx;
+}
+.xiangqing_img{
+  width:23rpx;
+  height:22rpx;
+  float:left;
+  margin-top:0rpx;
+  margin-left:5px;
+}
+.xiangqing_img image{
+  width:100%;
+  height:100%;
+}
+.xiangqing_pingluns{
+  width:100%;
+  height:auto;
+  overflow:hidden;
+}
+.xiangqing_pinglun_left text{
+  width: 50%;
+  margin-top:0rpx;
+  display:inline-block;
+  margin-left:5rpx;
+  font-size:24rpx;
+  text-align: center;
+}
+.xiangqing_imgs{
+  margin-top:0px;
+}
+.xiangqing_text{
+  width:90%;
+  height:auto;
+  margin:0 auto;
+  color:#6E7486;
+  font-size:24rpx;
+  margin-top:10rpx;
+  word-break:break-all;
+}
+.xiangqing_zong{
+  width:100%;
+  text-align:center;
+  color:#A0A8C2;
+  margin-top:9rpx;
+
+}
+.xiangqing_zong_padding{
+  width:90%;
+  height:auto;
+  margin:0 auto;
+  font-size:20rpx;
+}
+.xiangqing_bottom{
+  width:90%;
+  height:auto;
+  overflow:hidden;
+  margin:0 auto;
+  /* border-top:1px solid #BFBFBF; */
+  border-top:1px solid #BFBFBF;
+  padding-top:20rpx;
+}
+.xiangqing_bottom_left{
+  width:15%;
+  height:auto;
+  margin-top:5px;
+  float:left;
+}
+.xiangqing_contents{
+  height:auto;
+  /* border-bottom:1px solid #BFBFBF; */
+}
+.xiangqing_bottom_left image{
+  width:80rpx;
+  height:80rpx;
+  border-radius:50%;
+  float:left;
+}
+.xiangqing_bottom_right{
+  width:75%;
+  float:left;
+  margin-left:10px;
+}
+.xiangqing_bottom_right_name{
+  font-size:22rpx;
+  color:#333;
+}
+.xiangqing_bottom_right_time{
+  font-size:20rpx;
+  margin-top:11rpx;
+  color:#999;
+}
+.xiangqing_bottom_right_text{
+  font-size:24rpx;
+  color:#4D4D4D;
+  text-align:justify;
+  margin-bottom:20rpx;
+  margin-top:15rpx;
+}
+.input_box{
+  width: 70vw;
+  height: 100rpx;
+  background: rgb(116, 198, 253);
+  /* border:1px solid #383838; */
+  border-radius: 15rpx;
+  position: relative;
+}
+.input_box input{
+  flex:6;
+  height:50rpx;
+  border-bottom:1px solid #fff;
+  border-radius:6px;
+  margin-top:10px;
+  padding:5px;
+  font-size:24rpx;
+  color:#fff;
+}
+.input_box button{
+  
+  height: 45%;
+}
+.input_box button{
+  flex:1;
+  margin: 24rpx 0 0;
+  padding:0 14rpx;
+  font-size: 24rpx;
+  border-radius: 40rpx;
+  border: 1px solid #fff;
+  background:none;
+  color:#fff;
+}
+.btn {
+  width: 80%;
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+  text-align: center;
+  margin: 40rpx 10%;
+  background: #0C1939;
+  color: #fff;
+  line-height: 40rpx;
+}

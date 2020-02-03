@@ -1,0 +1,40 @@
+<wxs module="filters" src="../../pages/paihang/filters.wxs"></wxs>
+<view class="honghong_content_yun"
+style="top:{{screenHeight}}px; left:{{offX}}rpx; animation-play-state : {{ isAniPaused?'paused':'running'}}; animation-delay : {{aniDelay}}s;"
+bindtouchstart="pause" bindtouchend="play" bindanimationend="aniEnd" id="{{topicId}}"
+>
+
+	<view class="honghong_content">
+		<view class="honghong_yun">
+			<image class="honghong_yun_img" src="/images/yun.png"></image>
+		</view>
+		<view class="honghong_boxs">
+			<view class="honghong_yun_text">
+				<view class="honghong_photo" bindtap="topicXiangQing">
+					<image class="honghong_photo_img" src="{{pic}}"></image>
+				</view>
+			</view>
+			<view class="honghong_bottom">
+				<view class="honghong_title_text">{{userName}}</view>
+				<view class="honghong_bottom_left">{{date}}</view>
+			</view>
+			<view class="honghong_bottom_rights">
+				<view style="font-size:20rpx;color:#333;margin-left:-5rpx;text-align: center;">{{longClickSum >= 10000 ? filters.toFix(longClickSum/10000) + 'w' : (longClickSum >= 1000 ? filters.toFix(longClickSum/1000) + 'k' : longClickSum)}}</view>
+				<view class="honghong_bottom_right" bindtouchstart="dianZanStart" bindtouchend="dianZanEnd" bindtap="dianzan">
+					<image class="honghong_bottom_right_img" src="/images/zan.png" bindtap="dianzan" bindlongtap="changdianzan" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" id="{{topicId}}"></image>
+          <!-- <waveimage></waveimage> -->
+          <!-- <image src="/images/heart1.png" class="{{isXinTop?'xin':''}}"></image> -->
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="honghong_xiang">
+		<view class="honghong_line">
+			<image class="honghong_line_img" src="/images/line.png"></image>
+		</view>
+	</view>
+	<view class="honghong_h"  bindtap="toChange">
+		<view class="honghong_text  {{isShow ? 'on' : ''}}">{{content}}</view>
+		<!-- <image class="title_icon" src="{{isShow ? 'https://file.snailpet.cn/03/ad/03addd057eb67d09feef31894762d7f2.png' : 'https://file.snailpet.cn/23/a4/23a4787efd85b48db2102dcb51735e2c.png' }}" /> -->
+	</view>
+</view>
